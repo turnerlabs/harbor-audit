@@ -1,7 +1,7 @@
 {
-  "name": "react-app-starter-material-ui",
+  "name": "harbor-audit",
   "version": "0.0.1",
-  "description": "A starter project for writing a react app with material-ui components",
+  "description": "Audit log viewer for harbor shipments",
   "private": true,
   "main": "index.js",
   "dependencies": {
@@ -22,6 +22,6 @@
   "scripts": {
     "build": "browserify src/index.jsx -t babelify -o public/bundle.js",
     "watch": "watchify src/index.jsx -v -t babelify -o public/bundle.js",
-    "start": "npm run watch & live-server --wait=1000 public"
+    "start": "node ."
   }
 }
