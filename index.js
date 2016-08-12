@@ -1,11 +1,14 @@
-var app = require('express')();
+const express = require('express')
+const app = express()
 
-app.get('/', (req, res) => {
-  res.send('healthy\n');
-});
+app.get('/health', (req, res) => {
+  res.send('healthy\n')
+})
 
-let port = process.env.PORT || 5000;
+app.use(express.static(__dirname + '/public'))
 
-app.listen(port, () => {
-  console.log('app is running');
-});
+let port = process.env.PORT || 5000
+
+app.listen(port, _ => {
+  console.log('app is running')
+})
