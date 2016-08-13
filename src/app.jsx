@@ -48,7 +48,7 @@ class App extends React.Component {
                 onChange={this.handleChangeSingle}
                 value={this.state.valueSingle}
               >
-                <MenuItem value="view1" primaryText="View 1" />
+                <MenuItem value="view" primaryText="View" />
               </IconMenu>
             }
           />

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card'
+import {Card, CardHeader, CardText} from 'material-ui/Card'
 import Environment from './Environment.jsx'
 
 export default React.createClass({

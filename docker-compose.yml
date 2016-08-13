@@ -2,7 +2,7 @@ version: '2'
 services:
   harbor-audit:
     build: .
-    image: registry.services.dmtio.net/harbor-audit:0.0.1
+    image: registry.services.dmtio.net/harbor-audit:0.0.2
     ports:
       - "80:5000"
     environment:

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card'
+import {Card, CardHeader, CardText} from 'material-ui/Card'
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table'
 import moment from 'moment'
 

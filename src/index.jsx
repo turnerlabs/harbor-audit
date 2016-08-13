@@ -8,16 +8,14 @@ import App from './app.jsx'
 import View from './view.jsx'
 
 // Needed for onTouchTap
-// Check this repo:
-// https://github.com/zilverline/react-tap-event-plugin
 injectTapEventPlugin();
 
 // Declarative route configuration
 ReactDOM.render((
-  <Router history={hashHistory}>
+  <Router history={browserHistory}>
     <Route path="/" component={App}>
       <IndexRoute component={View} />
-      <Route path="/view1" component={View} />
+      <Route path="/view" component={View} />
     </Route>
   </Router>
 ), document.querySelector('#content'));
