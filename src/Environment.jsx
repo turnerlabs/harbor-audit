@@ -2,6 +2,7 @@ import React from 'react'
 import {Card, CardHeader, CardText} from 'material-ui/Card'
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table'
 import moment from 'moment'
+import config from './config.js'
 
 export default React.createClass({
 
@@ -15,15 +16,17 @@ export default React.createClass({
 
   handleExpandChange() {
     if (!this.state.expanded && this.state.haventFetched) {
-      const url = 'http://shipit.services.dmtio.net/v1/logs/shipment/' + this.props.shipment + '/environment/' + this.props.env
-      fetch(url)
-        .then(response => response.json())
-        .then(data => {
-          this.setState({ data })
-        })
-        .catch(ex => {
-          console.error('parsing failed', ex)
-        })
+      config(c => {
+        const url = c.shipItApi + 'v1/logs/shipment/' + this.props.shipment + '/environment/' + this.props.env
+        fetch(url)
+          .then(response => response.json())
+          .then(data => {
+            this.setState({ data })
+          })
+          .catch(ex => {
+            console.error('parsing failed', ex)
+          })
+      })
     }
 
     //toggle state
