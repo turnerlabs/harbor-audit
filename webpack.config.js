@@ -10,6 +10,7 @@ module.exports = {
       'react-tap-event-plugin',
       'material-ui',      
       'moment',
+      'sort-by',
     ],
   },
   output: { 

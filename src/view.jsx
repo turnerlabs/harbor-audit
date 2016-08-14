@@ -1,13 +1,19 @@
 import React from 'react'
 import {Card, CardHeader, CardText} from 'material-ui/Card'
-import ShipmentGroup from './ShipmentGroup.jsx'
+import ShipmentGroup from './shipmentGroup.jsx'
 import config from './config.js'
+import Spinner from './spinner.jsx'
+import TextField from 'material-ui/TextField'
+import sortBy from 'sort-by'
 
 export default React.createClass({
 
   getInitialState() {
-    return {
-      data: []
+    return {      
+      fetchingData: true,
+      data: [],
+      groupedData: [],
+      searchString: '',
     }
   },
 
@@ -18,6 +24,7 @@ export default React.createClass({
         .then(data => {
           //group dataset by "group"
           const groupedData = data
+            .sort(sortBy('group'))
             .map(item => item.group)
             .reduce((acc, item, index, array) => {
               acc[item] = acc[item] || []
@@ -25,7 +32,11 @@ export default React.createClass({
               return acc
             }, {})
             
-          this.setState({ data: groupedData })
+          this.setState({ 
+            data, 
+            groupedData,
+            fetchingData: false,
+          })
         })
         .catch(ex => {
           console.error('parsing failed', ex)
@@ -33,18 +44,34 @@ export default React.createClass({
     })
   },
 
+  handleChange(event) {
+    this.setState({
+      searchString: event.target.value,
+    })
+  },
+
   render() {
+    const { fetchingData, groupedData, searchString } = this.state
+
+    if (fetchingData)
+      return <Spinner /> 
+
     return (
       <div>
-        <br />
+        <TextField
+          floatingLabelText="find shipment"
+          onChange={this.handleChange}
+        />
+        <br /><br />
         {
-          Object.keys(this.state.data).map(group => 
+          Object.keys(groupedData).map(group => 
             (
               <ShipmentGroup 
                 key={group} 
-                data={this.state.data} 
+                data={groupedData} 
                 group={group}
-                shipments={this.state.data[group]} 
+                shipments={groupedData[group]} 
+                searchString={searchString}
               />
             )
           )
