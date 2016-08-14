@@ -1,9 +1,24 @@
+const webpack = require('webpack')
+
 module.exports = {
-  entry: './src/index.jsx',
+  entry: {
+    app: './src/index.jsx',
+    vendor: [ 
+      'react', 
+      'react-dom',
+      'react-router',
+      'react-tap-event-plugin',
+      'material-ui',      
+      'moment',
+    ],
+  },
   output: { 
     path: './public', 
     filename: 'bundle.js' 
   },
+  plugins: [
+    new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor.bundle.js')
+  ],
   module: {
     loaders: [
       {
@@ -16,4 +31,18 @@ module.exports = {
       }
     ]
   },
+  devServer: {
+    quiet: false,
+    noInfo: false,
+    stats: {
+      // Config for minimal console.log mess.
+      assets: true,
+      colors: true,
+      version: true,
+      hash: true,
+      timings: true,
+      chunks: false,
+      chunkModules: false
+    }
+  },  
 };
