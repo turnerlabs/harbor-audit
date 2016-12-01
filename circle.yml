@@ -1,9 +1,8 @@
 machine:
   environment:
     now: $(date +%Y%m%dT%H%M)
-  machine:
-    node:
-      version: 6.9.1    
+  node:
+    version: 6.9.1    
   pre:
 
   # install newer docker
