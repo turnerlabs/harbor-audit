@@ -1,6 +1,6 @@
 {
   "name": "harbor-audit",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "description": "Audit log viewer for harbor shipments",
   "private": true,
   "main": "index.js",
@@ -26,6 +26,7 @@
   "scripts": {
     "build": "webpack",
     "dev": "webpack-dev-server --inline --content-base public/",
-    "start": "node ."
+    "start": "node .",
+    "test": "chmod +x ./test.sh && ./test.sh"
   }
 }
