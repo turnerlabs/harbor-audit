@@ -1,6 +1,6 @@
 import React from 'react'
 import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card'
-import Shipment from './shipment.jsx'
+import Shipment from './shipment'
 
 export default React.createClass({
 

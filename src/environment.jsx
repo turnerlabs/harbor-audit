@@ -2,7 +2,7 @@ import React from 'react'
 import {Card, CardHeader, CardText} from 'material-ui/Card'
 import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table'
 import moment from 'moment'
-import config from './config.js'
+import config from './config'
 
 export default React.createClass({
 

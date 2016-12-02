@@ -1,8 +1,8 @@
 import React from 'react'
 import {Card, CardHeader, CardText} from 'material-ui/Card'
-import ShipmentGroup from './ShipmentGroup.jsx'
-import config from './config.js'
-import Spinner from './spinner.jsx'
+import ShipmentGroup from './shipmentGroup'
+import config from './config'
+import Spinner from './spinner'
 import TextField from 'material-ui/TextField'
 import sortBy from 'sort-by'
 
