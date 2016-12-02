@@ -1,6 +1,6 @@
 import React from 'react'
 import {Card, CardHeader, CardText} from 'material-ui/Card'
-import ShipmentGroup from './shipmentGroup.jsx'
+import ShipmentGroup from './shipmentgroup.jsx'
 import config from './config.js'
 import Spinner from './spinner.jsx'
 import TextField from 'material-ui/TextField'
