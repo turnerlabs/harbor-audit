@@ -1,6 +1,6 @@
 {
   "name": "harbor-audit",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Audit log viewer for harbor shipments",
   "private": true,
   "main": "index.js",
@@ -9,8 +9,8 @@
     "express": "^4.14.0",
     "material-ui": "^0.15.0",
     "moment": "^2.14.1",
-    "react": "^15.0.2",
-    "react-dom": "^15.0.2",
+    "react": "15.3.2",
+    "react-dom": "15.3.2",
     "react-router": "^2.4.0",
     "react-tap-event-plugin": "^1.0.0",
     "sort-by": "^1.1.1"
