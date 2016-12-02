@@ -1,3 +1,9 @@
+general:
+  branches:
+    only:
+     - master
+     - develop
+
 machine:
   environment:
     now: $(date +%Y%m%dT%H%M)
@@ -37,13 +43,13 @@ test:
   - docker-compose logs
   - npm test
 
-  # push to docker registry
-  - docker-compose push
-
 deployment:
   CD:
     branch: master
     commands:
+
+    # push to docker registry
+    - docker-compose push    
 
     # deploy to harbor
     - docker-compose -f harbor-deploy.yml run deploy
