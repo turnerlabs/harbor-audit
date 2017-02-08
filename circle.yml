@@ -52,4 +52,5 @@ deployment:
     - docker-compose push    
 
     # deploy to harbor
-    - docker-compose -f harbor-deploy.yml run deploy
+    - echo "BUILD_TOKEN=${TOKEN}" >> .env
+    - docker run -it --env-file .env -v `pwd`:/work quay.io/turner/harbor-compose:0.10-pre-deploy3 deploy
