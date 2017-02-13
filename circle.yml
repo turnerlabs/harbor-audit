@@ -20,6 +20,9 @@ machine:
   # install jq
   - sudo apt-get install jq
 
+  # install harbor-compose
+  # - sudo wget -O /usr/local/bin/harbor-compose https://github.com/turnerlabs/harbor-compose/releases/download/0.9.1/ncd_linux_amd64 && sudo chmod +x /usr/local/bin/harbor-compose
+
   services:
     - docker
 
@@ -39,8 +42,8 @@ test:
   - docker-compose build
 
   # spin up stack and test
-  - docker-compose up -d && sleep 10
-  - docker-compose logs
+  - docker-compose up -d
+  - sleep 10
   - npm test
 
 deployment:
@@ -52,5 +55,5 @@ deployment:
     - docker-compose push    
 
     # deploy to harbor
-    - echo "BUILD_TOKEN=${TOKEN}" >> .env
-    - docker run -it --env-file .env -v `pwd`:/work quay.io/turner/harbor-compose:0.10-pre-deploy3 deploy
+    #- source .env; harbor-compose deploy
+    - docker run -it --env-file .env -v `pwd`:/work quay.io/turner/harbor-compose:0.10-pre-deploy5 deploy
