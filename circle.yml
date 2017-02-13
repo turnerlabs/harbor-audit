@@ -56,4 +56,5 @@ deployment:
 
     # deploy to harbor
     #- source .env; harbor-compose deploy
-    - docker run -it --env-file .env -v `pwd`:/work quay.io/turner/harbor-compose:0.10-pre-deploy5 deploy
+    - echo "HARBOR_AUDIT_PROD_TOKEN=${HARBOR_AUDIT_PROD_TOKEN}" >> .env
+    - docker run -it --env-file .env x= -v `pwd`:/work quay.io/turner/harbor-compose:0.10-pre-deploy5 deploy
