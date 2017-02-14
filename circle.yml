@@ -21,7 +21,7 @@ machine:
   - sudo apt-get install jq
 
   # install harbor-compose
-  # - sudo wget -O /usr/local/bin/harbor-compose https://github.com/turnerlabs/harbor-compose/releases/download/0.9.1/ncd_linux_amd64 && sudo chmod +x /usr/local/bin/harbor-compose
+  - sudo wget -O /usr/local/bin/harbor-compose https://github.com/turnerlabs/harbor-compose/releases/download/v0.9.0-pre-9-gc5f4c85/ncd_darwin_amd64 && sudo chmod +x /usr/local/bin/harbor-compose
 
   services:
     - docker
@@ -55,6 +55,4 @@ deployment:
     - docker-compose push    
 
     # deploy to harbor
-    #- source .env; harbor-compose deploy
-    - echo "HARBOR_AUDIT_PROD_TOKEN=${HARBOR_AUDIT_PROD_TOKEN}" >> .env
-    - docker run -it --env-file .env -v `pwd`:/work quay.io/turner/harbor-compose:0.10-pre-deploy5 deploy
+    - source .env; harbor-compose deploy
