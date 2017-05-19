@@ -20,6 +20,8 @@
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.13.2",
     "babel-preset-react": "^6.11.1",
+    "harbor-compose-wrapper": "^0.11.0",
+    "randomstring": "^1.1.5",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.14.1"
   },
@@ -27,6 +29,12 @@
     "build": "webpack --display-error-details",
     "dev": "webpack-dev-server --inline --content-base public/",
     "start": "node .",
-    "test": "chmod +x ./test.sh && ./test.sh"
+    "test": "chmod +x ./test.sh && ./test.sh",
+    "docker-build": "echo VERSION=$(jq -r .version < package.json)-$(randomstring) > .env && docker-compose build",
+    "docker-push": "docker-compose push",
+    "harbor-up": "harbor-compose up",
+    "harbor-ps": "harbor-compose ps",
+    "harbor-logs": "harbor-compose logs",
+    "harbor-deploy": "npm run docker-build && npm run docker-push && npm run harbor-up && npm run harbor-ps"
   }
 }

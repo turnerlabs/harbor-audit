@@ -33,7 +33,7 @@ dependencies:
     - docker login -e="." -u="${DOCKER_USER}" -p="${DOCKER_PASS}" quay.io
 
     # build dynamic image tag/version number
-    - echo "VERSION=$(jq -r .version < ./package.json).${CIRCLE_BUILD_NUM}" > .env
+    - echo "VERSION=$(jq -r .version < package.json)-${CIRCLE_BUILD_NUM}" > .env
 
 test:
   override:
@@ -55,4 +55,4 @@ deployment:
     - docker-compose push    
 
     # deploy to harbor
-    - source .env; harbor-compose deploy
+    - harbor-compose deploy
