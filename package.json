@@ -30,12 +30,10 @@
     "dev": "webpack-dev-server --inline --content-base public/",
     "start": "node .",
     "test": "chmod +x ./test.sh && ./test.sh",
-    "unique-version": "echo VERSION=$(jq -r .version < package.json)-$(randomstring) > .env",
-    "docker-build": "npm run unique-version && docker-compose build",
-    "docker-push": "docker-compose push",
-    "harbor-up": "harbor-compose up",
+    "_unique-version": "echo VERSION=$(jq -r .version < package.json)-$(randomstring) > .env",
+    "docker-build": "npm run _unique-version && docker-compose build",
     "harbor-ps": "harbor-compose ps",
     "harbor-logs": "harbor-compose logs",
-    "harbor-deploy": "npm run docker-build && npm run docker-push && npm run harbor-up && npm run harbor-ps"
+    "harbor-deploy": "npm run docker-build && docker-compose push && harbor-compose up && npm run harbor-ps"
   }
 }

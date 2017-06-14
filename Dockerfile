@@ -7,7 +7,6 @@ COPY package.json /usr/src/app/
 ENV NPM_CONFIG_LOGLEVEL warn
 RUN npm install
 COPY . /usr/src/app
-RUN ls -l /usr/src/app/src/
 RUN npm run build
 
 CMD [ "npm", "start" ]
