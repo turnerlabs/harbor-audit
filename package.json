@@ -29,6 +29,9 @@
     "build": "webpack --display-error-details",
     "dev": "webpack-dev-server --inline --content-base public/",    
     "test": "echo 'no tests'",
-    "start": "node ."
+    "start": "node .",
+    "_unique-version": "echo RANDOM=$(randomstring) > .env",
+    "docker-build": "npm run _unique-version && docker-compose build",
+    "harbor-deploy": "npm run docker-build && docker-compose push && harbor-compose up && harbor-compose ps"
   }
 }

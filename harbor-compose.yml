@@ -1,0 +1,11 @@
+shipments:
+  harbor-audit:
+    env: pre-demo
+    barge: corp-sandbox
+    containers:
+    - harbor-audit
+    replicas: 2
+    group: mss
+    property: turner
+    project: turner
+    product: turner
