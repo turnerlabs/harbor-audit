@@ -27,13 +27,8 @@
   },
   "scripts": {
     "build": "webpack --display-error-details",
-    "dev": "webpack-dev-server --inline --content-base public/",
-    "start": "node .",
-    "test": "chmod +x ./test.sh && ./test.sh",
-    "_unique-version": "echo VERSION=$(jq -r .version < package.json)-$(randomstring) > .env",
-    "docker-build": "npm run _unique-version && docker-compose build",
-    "harbor-ps": "harbor-compose ps",
-    "harbor-logs": "harbor-compose logs",
-    "harbor-deploy": "npm run docker-build && docker-compose push && harbor-compose up && npm run harbor-ps"
+    "dev": "webpack-dev-server --inline --content-base public/",    
+    "test": "echo 'no tests'",
+    "start": "node ."
   }
 }
