@@ -1,0 +1,29 @@
+
+version: 2
+jobs:
+  build:
+    docker:
+      - image: quay.io/turner/harbor-cicd-image:v0.12.1
+    working_directory: ~/app
+    steps:
+      - checkout
+      - setup_remote_docker:
+          version: 17.06.0-ce
+      - run:
+          name: Build app image
+          command: docker-compose build
+      - run:        
+          name: Login to registry
+          command: docker login -u="${DOCKER_USER}" -p="${DOCKER_PASS}" quay.io
+      - run:
+          name: Push app image to registry
+          command: docker-compose push
+      - run:
+          name: Catalog in Harbor
+          command: harbor-compose catalog
+      - run:
+          name: Deploy to Harbor
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "develop" ]; then 
+              harbor-compose deploy;
+            fi

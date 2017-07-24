@@ -1,0 +1,5 @@
+version: "2"
+services:
+  harbor-audit:
+    build: .
+    image: quay.io/turner/harbor-audit:1.0.1-practice2-${CIRCLE_BUILD_NUM}
