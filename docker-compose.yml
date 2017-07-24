@@ -2,9 +2,4 @@ version: "2"
 services:
   harbor-audit:
     build: .
-    image: quay.io/turner/harbor-audit:1.0.1-pre-demo-${RANDOM}
-    ports:
-    - 80:5000
-    environment:
-      HEALTHCHECK: /health
-      SHIPIT_API: http://shipit.services.dmtio.net/
+    image: quay.io/turner/harbor-audit:1.0.1-practice-${CIRCLE_BUILD_NUM}
