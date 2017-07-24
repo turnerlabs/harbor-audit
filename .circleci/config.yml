@@ -7,7 +7,7 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker:
-        - version: 17.06.0-ce
+	      version: 17.06.0-ce
       - run:
           name: Build app image
           command: docker-compose build
