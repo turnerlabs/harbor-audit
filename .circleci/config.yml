@@ -26,4 +26,3 @@ jobs:
             if [ "${CIRCLE_BRANCH}" == "practice" ]; then 
               harbor-compose deploy;
             fi
-	
