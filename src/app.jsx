@@ -37,7 +37,7 @@ class App extends React.Component {
       <MuiThemeProvider muiTheme={muiTheme}>
         <div>
           <AppBar
-            title="Harbor Shipment Audit"
+            title="Harbor Shipment Audit (changed in ci/cd)"
             showMenuIconButton={false}
             iconElementRight={
               <IconMenu
